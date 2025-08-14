@@ -1,6 +1,9 @@
 /**
  * @type {import('tinacms').Collection}
  */
+
+import fullWidthSectionSchema from '../templates/full-width-section';
+
 export default {
   label: "Page Content",
   name: "page",
@@ -8,10 +11,14 @@ export default {
   format: "mdx",
   fields: [
     {
-      name: "body",
-      label: "Main Content",
-      type: "rich-text",
-      isBody: true,
+      name: 'sections',
+      type: 'object',
+      label: 'Sections',
+      list: true,
+      ui: {
+        visualSelector: true,
+      },
+      templates: [fullWidthSectionSchema],
     },
   ],
   ui: {
